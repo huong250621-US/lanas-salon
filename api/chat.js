@@ -74,6 +74,9 @@ TONE: Warm, friendly, confident. Concise. Light emojis 💇‍♀️✨. Never i
     return res.status(200).json({ reply: data.content?.[0]?.text });
 
   } catch (error) {
-    return res.status(500).json({ error: "Server error. Please try again." });
+    console.error("Chat error:", error.message);
+    return res.status(500).json({
+      reply: "Sorry, I'm having trouble right now. Please text Lana at (432) 664-5845 💕"
+    });
   }
 }
